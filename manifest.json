@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Follow-Up Assistant",
+  "version": "1.0",
+  "description": "Track and remind you to follow up on important emails and messages.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "notifications"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*", "https://www.linkedin.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
